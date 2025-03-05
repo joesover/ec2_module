@@ -1,5 +1,5 @@
 terraform {
-  required_version = "= 0.12.28" # Restricting Terraform version
+  required_version = ">= 0.12.28" # Restricting Terraform version
 
   required_providers {
     aws = {

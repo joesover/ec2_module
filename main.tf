@@ -23,9 +23,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-  for_each = { for idx, name in var.instance_names : idx => name } # Convert list to map
+  for_each = toset(var.instance_names)  # Convert list to set for compatibility
 
-  ami           = "ami-00710ab5544b60cf7" # Replace with a valid AMI ID
+  ami           = "ami-00710ab5544b60cf7"
   instance_type = "t2.micro"
 
   tags = {
